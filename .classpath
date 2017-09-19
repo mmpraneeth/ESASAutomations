@@ -19,9 +19,5 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/mmallampalli/Downloads/com.springsource.org.apache.ivy-2.2.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mmallampalli/Downloads/p4java-2015.2.1365272.jar"/>
-	<classpathentry kind="lib" path="/EnvironmentRefresh/ant-salesforce.jar"/>
-	<classpathentry kind="lib" path="/EnvironmentRefresh/force-wsc-37.0.jar"/>
-	<classpathentry kind="lib" path="/EnvironmentRefresh/metadata.jar"/>
-	<classpathentry kind="lib" path="/EnvironmentRefresh/partner.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
