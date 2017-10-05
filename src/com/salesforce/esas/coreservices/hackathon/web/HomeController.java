@@ -23,8 +23,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Map<String, Object> model) {
 
-		model.put("title", genericService.getTitle(""));
-		model.put("msg", genericService.getDesc());
+		model.put("org62", genericService.getOrg62Analysis("Org62"));
+		model.put("supportforce", genericService.getOrg62Analysis("Supportforce"));
 		
 		return "index";
 	}

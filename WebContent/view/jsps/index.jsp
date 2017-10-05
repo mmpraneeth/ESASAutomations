@@ -77,8 +77,9 @@
 		      </header>
 		    </div>
 		    <!-- CARD BODY = TABLE -->
-		    <div class="slds-card__body">
+		    <div class="slds-card__body">		    
 		      <ul class="slds-accordion">
+		      	<c:forEach items="#{org62}" var="record">
 				  <li class="slds-accordion__list-item" >
 				    <section class="slds-accordion__section" onclick="$(this).toggleClass('slds-is-open')">
 				      <div class="slds-accordion__summary" >
@@ -87,13 +88,14 @@
 				            <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
 				              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="view/salesforce-lightning-design-system-2.4.3/assets/icons/utility-sprite/svg/symbols.svg#switch" />
 				            </svg>
-				            <span class="slds-truncate" title="Accordion summary">Object Name</span>
+				            <span class="slds-truncate" title="Accordion summary">${record.objectName}</span>
 				          </button>
 				        </h3>				        
 				      </div>
 				      <div aria-hidden="false" class="slds-accordion__content" id="accordion-details-01">Accordion details - A</div>
 				    </section>
-				  </li>				  
+				  </li>
+				  </c:forEach>				  
 				</ul>
 		    </div>
 		    <!-- / CARD BODY = SECTION + TABLE -->
@@ -126,6 +128,7 @@
 		    <!-- CARD BODY = TABLE -->
 		    <div class="slds-card__body">
 		      <ul class="slds-accordion">
+				  <c:forEach items="#{supportforce}" var="record">
 				  <li class="slds-accordion__list-item" >
 				    <section class="slds-accordion__section" onclick="$(this).toggleClass('slds-is-open')">
 				      <div class="slds-accordion__summary" >
@@ -134,13 +137,14 @@
 				            <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
 				              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="view/salesforce-lightning-design-system-2.4.3/assets/icons/utility-sprite/svg/symbols.svg#switch" />
 				            </svg>
-				            <span class="slds-truncate" title="Accordion summary">Object Name</span>
+				            <span class="slds-truncate" title="Accordion summary">${record.objectName}</span>
 				          </button>
 				        </h3>				        
 				      </div>
 				      <div aria-hidden="false" class="slds-accordion__content" id="accordion-details-01">Accordion details - A</div>
 				    </section>
-				  </li>				  
+				  </li>
+				  </c:forEach>			  
 				</ul>
 		    </div>
 		    <!-- / CARD BODY = SECTION + TABLE -->

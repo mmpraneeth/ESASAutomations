@@ -5,10 +5,15 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Properties;
 
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import com.salesforce.esas.coreservices.hackathon.web.forms.FillRateAnalysis;
 
 @Service
 public class GenericService {
@@ -18,29 +23,10 @@ public class GenericService {
 	public final String postgreUsername = "ezfmmlebdzkskl";
 	public final String postgrePassword = "7b4b3176116b6cff181c709a62d2e7b10e4561b26cf379e32120fa92303a6d82";
 
-	public String getDesc() {
-
-		System.out.println("getDesc() is executed!");
-
-		return "Gradle + Spring MVC Hello World Example";
-
-	}
-
-	public String getTitle(String name) {
-
-		System.out.println("getTitle() is executed! $name : {}" + name);
-		getOrg62Analysis();
-		if(StringUtils.isEmpty(name)){
-			return "Hello World";
-		}else{
-			return "Hello " + name;
-		}
-		
-	}
+	Connection connection = null;
 	
-	public String getOrg62Analysis(){
-		System.out.println("-------- PostgreSQL "
-				+ "JDBC Connection Testing ------------");
+	GenericService(){
+		System.out.println("-------- PostgreSQL "+ "JDBC Connection Testing ------------");
 		try {
 
 			Class.forName("org.postgresql.Driver");
@@ -48,14 +34,11 @@ public class GenericService {
 
 			System.out.println("Where is your PostgreSQL JDBC Driver? "
 					+ "Include in your library path!");
-			e.printStackTrace();
-			return null;
+			e.printStackTrace();		
 
 		}
 
 		System.out.println("PostgreSQL JDBC Driver Registered!");
-
-		Connection connection = null;
 
 		try {
 
@@ -66,6 +49,25 @@ public class GenericService {
 			ResultSet rs = st.executeQuery("Select * from salesforce.fill_rate_analysis");
 			while(rs.next()){			
 				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException e) {
+
+			System.out.println("Connection Failed! Check output console");
+			e.printStackTrace();			
+
+		}
+	}	
+	
+	public LinkedList<FillRateAnalysis> getOrg62Analysis(String orgName){	
+		LinkedList<FillRateAnalysis> dataList = new LinkedList<FillRateAnalysis>();
+		try {
+			Statement st = connection.createStatement();
+			ResultSet rs = st.executeQuery("Select * from salesforce.fill_rate_analysis where \"OrgName\"='"+orgName+"'");
+			while(rs.next()){		
+				FillRateAnalysis data = new FillRateAnalysis();
+				data.setObjectName(rs.getString("ObjectName"));
+				System.out.println();
+				dataList.add(data);
 			}
 		} catch (SQLException e) {
 
@@ -81,6 +83,6 @@ public class GenericService {
 			System.out.println("Failed to make connection!");
 		}
 		
-		return null;
+		return dataList;
 	}
 }
