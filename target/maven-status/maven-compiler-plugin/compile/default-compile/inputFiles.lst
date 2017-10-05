@@ -1,7 +1,5 @@
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\salesgtm\Test.java
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\dataloader\security\EncryptionUtil.java
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\salesgtm\CreateXMLFile.java
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\salesgtm\HomeController.java
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\salesgtm\FieldDependencies.java
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\salesgtm\EncryptionUtil.java
-C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\salesgtm\PasswordTool.java
+C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\coreservices\hackathon\config\SpringRootConfig.java
+C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\coreservices\hackathon\web\HomeController.java
+C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\coreservices\hackathon\service\GenericService.java
+C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\coreservices\hackathon\config\SpringWebConfig.java
+C:\Users\mmallampalli\Documents\GitHub\ESASAutomations\src\com\salesforce\esas\coreservices\hackathon\servlet\MyWebInitializer.java
