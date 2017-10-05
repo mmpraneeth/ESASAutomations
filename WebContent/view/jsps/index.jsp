@@ -7,8 +7,8 @@
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
-<link href="${bootstrapCss}" rel="stylesheet" />
-<link href="${coreCss}" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="view/salesforce-lightning-design-system-2.4.3/assets/styles/salesforce-lightning-design-system.css" />
+
 </head>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">

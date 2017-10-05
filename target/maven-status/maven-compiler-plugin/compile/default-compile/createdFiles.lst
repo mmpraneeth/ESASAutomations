@@ -1,5 +1,8 @@
-com\salesforce\esas\coreservices\hackathon\config\SpringRootConfig.class
 com\salesforce\esas\coreservices\hackathon\config\SpringWebConfig.class
+com\salesforce\esas\coreservices\hackathon\web\InstallCert.class
+com\salesforce\esas\coreservices\hackathon\web\HomeController.class
+com\salesforce\esas\coreservices\hackathon\config\SpringRootConfig.class
+com\salesforce\esas\coreservices\hackathon\web\InstallCert$SavingTrustManager.class
 com\salesforce\esas\coreservices\hackathon\service\GenericService.class
 com\salesforce\esas\coreservices\hackathon\servlet\MyWebInitializer.class
-com\salesforce\esas\coreservices\hackathon\web\HomeController.class
+com\salesforce\esas\coreservices\hackathon\web\HerokuTest.class
