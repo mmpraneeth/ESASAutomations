@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Data Fill Rate</title>
+<title>Field Scan - Data Fill Rate</title>
 
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
@@ -37,7 +37,7 @@
 	          <p class="slds-text-title--caps slds-line-height--reset"></p>
 	           <img src="https://www.google.com/a/salesforce.com/images/logo.gif?alpha=1&amp;service=google_default" style="width:15%%;height:50px;float:left;">
 	             <img src="https://www.vectorlogo.zone/logos/heroku/heroku-card.png" style="width:15%%;height:50px;float:right;">
-	           <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"  title="SLDS Inc." style="text-align: center;font-size:30px;">Data Fill Rate</h1>
+	           <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"  title="SLDS Inc." style="text-align: center;font-size:30px;">Field Data Storage</h1>
 	        </div>
 	      </div>
 	      <!-- / MEDIA OBJECT -->
@@ -103,21 +103,21 @@
 						  <thead>
 						    <tr class="slds-text-title_caps">
 						      <th scope="col">
-						        <div class="slds-truncate" title="Opportunity Name">Field Name</div>
+						        <div class="slds-truncate" title="Field Name">Field Name</div>
 						      </th>
 						      <th scope="col">
-						        <div class="slds-truncate" title="Account Name">Fill Rate</div>
+						        <div class="slds-truncate" title="Fill Rate">Fill Rate</div>
 						      </th>
 						     </tr>
 						   </thead>
 						   <tbody>
 						   <c:forEach items="${record.value}" var="fields">
 						    <tr>
-						      <th scope="row" data-label="Opportunity Name">
-						        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">${fields.fieldName}</a></div>
+						      <th scope="row" data-label="Field Name">
+						        <div class="slds-truncate" title="${fields.fieldName}"><a href="javascript:void(0);">${fields.fieldName}</a></div>
 						      </th>
-						      <td data-label="Account Name">
-						        <div class="slds-truncate" title="Cloudhub">
+						      <td data-label="Field Name">
+						        <div class="slds-truncate" title="${fields.fieldName}">
 						         <c:choose>
 						        	<c:when test="${fields.fillRate == 0}">
 						        		<font color= "red">
@@ -147,7 +147,7 @@
 		    <!-- / CARD BODY = SECTION + TABLE -->
 		    <c:if test="${showFooter2 > 5}">
 			    <div class="slds-card__footer">
-			      	<a href="javascript:void(0);">View All <span class="slds-assistive-text">contacts</span></a>
+			      	<a href="javascript:void(0);">View All </a>
 			    </div>
 		 	</c:if>
 		  </article>
@@ -197,20 +197,20 @@
 						  <thead>
 						    <tr class="slds-text-title_caps">
 						      <th scope="col">
-						        <div class="slds-truncate" title="Opportunity Name">Field Name</div>
+						        <div class="slds-truncate" title="Field Name">Field Name</div>
 						      </th>
 						      <th scope="col">
-						        <div class="slds-truncate" title="Account Name">Fill Rate</div>
+						        <div class="slds-truncate" title="Fill Rate">Fill Rate</div>
 						      </th>
 						     </tr>
 						   </thead>
 						   <tbody>		
 						   <c:forEach items="${record.value}" var="fields">
 						    <tr>
-						      <th scope="row" data-label="Opportunity Name">
-						        <div class="slds-truncate" title="Cloudhub"><a href="javascript:void(0);">${fields.fieldName}</a></div>
+						      <th scope="row" data-label="Field Name">
+						        <div class="slds-truncate" title="${fields.fieldName}"><a href="javascript:void(0);">${fields.fieldName}</a></div>
 						      </th>
-						      <td data-label="Account Name">
+						      <td data-label="Field Name">
 						         <c:choose>
 						        	<c:when test="${fields.fillRate == 0}">
 						        		<font color= "red">
