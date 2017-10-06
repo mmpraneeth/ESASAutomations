@@ -83,10 +83,10 @@
 		    </div>
 		    <!-- CARD BODY = TABLE -->
 		    <div class="slds-card__body">		    
-		      <ul class="slds-accordion">
+		      <ul class="slds-accordion" id="org62_ul">
 		      	<c:forEach items="#{org62}" var="record" varStatus="loop">
 		      	<c:set var="showFooter1" value="${loop.index}"/>
-				  <li class="slds-accordion__list-item" >
+				  <li class="slds-accordion__list-item" <c:if test="${loop.index > 4}"> style="display:none;" </c:if> >
 				    <section class="slds-accordion__section" id="sfdc1_${loop.index}">
 				      <div class="slds-accordion__summary" >
 				        <h3 class="slds-text-heading_small slds-accordion__summary-heading">
@@ -112,29 +112,29 @@
 						   </thead>
 						   <tbody>
 						   <c:forEach items="${record.value}" var="fields">
-						    <tr>
-						      <th scope="row" data-label="Field Name">
-						        <div class="slds-truncate" title="${fields.fieldName}"><a href="javascript:void(0);">${fields.fieldName}</a></div>
-						      </th>
-						      <td data-label="Field Name">
-						        <div class="slds-truncate" title="${fields.fieldName}">
-						         <c:choose>
-						        	<c:when test="${fields.fillRate == 0}">
-						        		<font color= "red">
-						        	</c:when>
-						        	<c:when test="${fields.fillRate < 20}">
-						        		<font color= "#f4a641">
-						        	</c:when>
-						        	<c:otherwise>
-						        		<font>
-						        	</c:otherwise>
-						        </c:choose>
-						        	
-						        	${fields.fillRate} %
-						        	</font>
-						        </div>
-						      </td>
-						     </tr>
+							    <tr>
+							      <th scope="row" data-label="Field Name">
+							        <div class="slds-truncate" title="${fields.fieldName}"><a href="javascript:void(0);">${fields.fieldName}</a></div>
+							      </th>
+							      <td data-label="Field Name">
+							        <div class="slds-truncate" title="${fields.fieldName}">
+							         <c:choose>
+							        	<c:when test="${fields.fillRate == 0}">
+							        		<font color= "red">
+							        	</c:when>
+							        	<c:when test="${fields.fillRate < 20}">
+							        		<font color= "#f4a641">
+							        	</c:when>
+							        	<c:otherwise>
+							        		<font>
+							        	</c:otherwise>
+							        </c:choose>
+							        	
+							        	${fields.fillRate} %
+							        	</font>
+							        </div>
+							      </td>
+							     </tr>
 						     </c:forEach>
 						   </tbody>
 						 </table>
@@ -145,9 +145,9 @@
 				</ul>
 		    </div>
 		    <!-- / CARD BODY = SECTION + TABLE -->
-		    <c:if test="${showFooter2 > 5}">
+		    <c:if test="${showFooter1 >= 5}">
 			    <div class="slds-card__footer">
-			      	<a href="javascript:void(0);">View All </a>
+			      	<a href="javascript:$('#org62_ul .slds-accordion__list-item').toggle(true);">View All </a>
 			    </div>
 		 	</c:if>
 		  </article>
@@ -177,10 +177,10 @@
 		    </div>
 		    <!-- CARD BODY = TABLE -->
 		    <div class="slds-card__body">
-		      <ul class="slds-accordion">
+		      <ul class="slds-accordion" id="spf_ul">
 				  <c:forEach items="#{supportforce}" var="record" varStatus="loop">	
 				  <c:set var="showFooter2" value="${loop.index}"/>			  
-				  <li class="slds-accordion__list-item" >
+				  <li class="slds-accordion__list-item" <c:if test="${loop.index > 4}"> style="display:none;" </c:if> >
 				    <section class="slds-accordion__section" id="sfdc2_${loop.index}">
 				      <div class="slds-accordion__summary" >
 				        <h3 class="slds-text-heading_small slds-accordion__summary-heading">
@@ -237,9 +237,9 @@
 				</ul>
 		    </div>
 		    <!-- / CARD BODY = SECTION + TABLE -->
-		    <c:if test="${showFooter2 > 5}">
+		    <c:if test="${showFooter2 >= 5}">
 			    <div class="slds-card__footer">
-			      	<a href="javascript:void(0);">View All <span class="slds-assistive-text">contacts</span></a>
+			      	<a href="javascript:$('#spf_ul .slds-accordion__list-item').toggle(true);">View All <span class="slds-assistive-text">contacts</span></a>
 			    </div>
 		 	</c:if>		 
 		  </article>
