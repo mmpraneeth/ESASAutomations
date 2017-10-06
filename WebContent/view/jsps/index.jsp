@@ -87,10 +87,10 @@
 		      	<c:forEach items="#{org62}" var="record" varStatus="loop">
 		      	<c:set var="showFooter1" value="${loop.index}"/>
 				  <li class="slds-accordion__list-item" >
-				    <section class="slds-accordion__section" onclick="$(this).toggleClass('slds-is-open')">
+				    <section class="slds-accordion__section" id="sfdc1_${loop.index}">
 				      <div class="slds-accordion__summary" >
 				        <h3 class="slds-text-heading_small slds-accordion__summary-heading">
-				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action ">
+				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action " onclick="$('#sfdc1_${loop.index}').toggleClass('slds-is-open')">
 				            <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
 				              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="view/salesforce-lightning-design-system-2.4.3/assets/icons/utility-sprite/svg/symbols.svg#switch" />
 				            </svg>
@@ -119,10 +119,10 @@
 						      <td data-label="Account Name">
 						        <div class="slds-truncate" title="Cloudhub">
 						         <c:choose>
-						        	<c:when test="${fields.fillRate >= 90}">
+						        	<c:when test="${fields.fillRate == 0}">
 						        		<font color= "red">
 						        	</c:when>
-						        	<c:when test="${fields.fillRate >= 80}">
+						        	<c:when test="${fields.fillRate < 20}">
 						        		<font color= "#f4a641">
 						        	</c:when>
 						        	<c:otherwise>
@@ -181,10 +181,10 @@
 				  <c:forEach items="#{supportforce}" var="record" varStatus="loop">	
 				  <c:set var="showFooter2" value="${loop.index}"/>			  
 				  <li class="slds-accordion__list-item" >
-				    <section class="slds-accordion__section" onclick="$(this).toggleClass('slds-is-open')">
+				    <section class="slds-accordion__section" id="sfdc2_${loop.index}">
 				      <div class="slds-accordion__summary" >
 				        <h3 class="slds-text-heading_small slds-accordion__summary-heading">
-				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action">
+				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action" onclick="$('#sfdc2_${loop.index}').toggleClass('slds-is-open')">
 				            <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
 				              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="view/salesforce-lightning-design-system-2.4.3/assets/icons/utility-sprite/svg/symbols.svg#switch" />
 				            </svg>
@@ -212,10 +212,10 @@
 						      </th>
 						      <td data-label="Account Name">
 						         <c:choose>
-						        	<c:when test="${fields.fillRate >= 90}">
+						        	<c:when test="${fields.fillRate == 0}">
 						        		<font color= "red">
 						        	</c:when>
-						        	<c:when test="${fields.fillRate >= 80}">
+						        	<c:when test="${fields.fillRate < 20}">
 						        		<font color= "#f4a641">
 						        	</c:when>
 						        	<c:otherwise>
@@ -223,7 +223,7 @@
 						        	</c:otherwise>
 						        </c:choose>
 						        	
-						        	${fields.fillRate} % <c:out value="${org62.length}"></c:out>
+						        	${fields.fillRate} %
 						        	</font>
 						      </td>
 						     </tr>
