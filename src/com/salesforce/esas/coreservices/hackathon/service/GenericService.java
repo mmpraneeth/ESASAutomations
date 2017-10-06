@@ -64,7 +64,7 @@ public class GenericService {
 		LinkedList<FillRateAnalysis> dataList = null;
 		try {
 			Statement st = connection.createStatement();
-			ResultSet rs = st.executeQuery("Select * from salesforce.fill_rate_analysis where \"OrgName\"='"+orgName+"' order by \"FillRate\",\"ObjectName\",\"FieldName\"");
+			ResultSet rs = st.executeQuery("Select * from salesforce.fill_rate_analysis where \"OrgName\"='"+orgName+"' order by \"ObjectName\",\"FillRate\",\"FieldName\"");
 			while(rs.next()){		
 				FillRateAnalysis data = new FillRateAnalysis();
 				data.setObjectName(rs.getString("ObjectName").trim());
