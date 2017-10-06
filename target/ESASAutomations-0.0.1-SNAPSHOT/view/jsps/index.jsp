@@ -8,6 +8,7 @@
 <spring:url value="/resources/core/css/hello.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
 <link rel="stylesheet" type="text/css" href="view/salesforce-lightning-design-system-2.4.3/assets/styles/salesforce-lightning-design-system.css" />
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="//c2.sfdcstatic.com/etc/designs/sfdc-www/en_us/favicon.ico">
 <script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -31,11 +32,12 @@
 	      <!-- MEDIA OBJECT = FIGURE + BODY -->
 	      <div class="slds-media slds-no-space slds-grow">
 	        <div class="slds-media__figure">
-
 	        </div>
 	        <div class="slds-media__body">
 	          <p class="slds-text-title--caps slds-line-height--reset"></p>
-	          <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate" title="SLDS Inc.">Data Fill Rate</h1>
+	           <img src="https://www.google.com/a/salesforce.com/images/logo.gif?alpha=1&amp;service=google_default" style="width:15%%;height:50px;float:left;">
+	             <img src="https://www.vectorlogo.zone/logos/heroku/heroku-card.png" style="width:15%%;height:50px;float:right;">
+	           <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"  title="SLDS Inc." style="text-align: center;font-size:30px;">Data Fill Rate</h1>
 	        </div>
 	      </div>
 	      <!-- / MEDIA OBJECT -->
@@ -64,14 +66,17 @@
 		   <article class="slds-card">
 		    <div class="slds-card__header slds-grid">
 		      <header class="slds-media slds-media--center slds-has-flexi-truncate">
-		        <div class="slds-media__figure">
-		          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
-		            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+	 			<div class="slds-media__figure">
+		        <span class="slds-icon_container slds-icon-standard-bot">
+		          <svg aria-hidden="true" class="slds-icon slds-icon--small" id="case">
+		            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#bot')}"></use>
+		          <svg viewBox="0 0 24 24" id="bot"><title/><path d="M11.9 6.2c1.7 0 3.1 1.4 3.1 3.1v.8c-1-.1-2.1-.2-3.1-.2s-2.1.1-3.1.2v-.8c0-1.7 1.4-3.1 3.1-3.1zm5.7 9.1l.3-2.7c.7.1 1.2.7 1.2 1.3 0 .8-.7 1.4-1.5 1.4zm-11.4 0c-.8 0-1.5-.6-1.5-1.4 0-.7.5-1.2 1.2-1.3l.3 2.7zm10.3-4.5c-1.6-.2-3.1-.3-4.6-.3s-3 .1-4.5.3c-.6 0-.9.5-.9 1l.5 4.7c.1.4.4.8.8.8 1.4.2 2.8.2 4.2.2s2.7 0 4.1-.2c.4 0 .7-.4.8-.8l.5-4.7c0-.5-.4-1-.9-1zM9.3 15c-.4 0-.7-.4-.7-.9s.3-.9.7-.9.6.4.6.9-.3.9-.6.9zm4 1l-.1.1s0 .1-.1.1h-2.4l-.1-.1v-.5c0-.1 0-.2.1-.2h.1c.1 0 .1.1.1.2v.2h2v-.2c0-.1.1-.2.2-.2s.2.1.2.2v.4zm1.2-1c-.3 0-.6-.4-.6-.9s.3-.9.6-.9.7.4.7.9-.3.9-.7.9z"/></path></symbol></svg>
 		          </svg>
+		        <span class="slds-assistive-text"></span>
 		        </div>
 		        <div class="slds-media__body slds-truncate">
 		          <a href="javascript:void(0);" class="slds-text-link--reset">
-		            <span class="slds-text-heading--small">ORG 62</span>
+		            <span class="slds-text-heading--small">Sandbox-1</span>
 		          </a>
 		        </div>
 		      </header>
@@ -82,10 +87,10 @@
 		      	<c:forEach items="#{org62}" var="record" varStatus="loop">
 		      	<c:set var="showFooter1" value="${loop.index}"/>
 				  <li class="slds-accordion__list-item" >
-				    <section class="slds-accordion__section" onclick="$(this).toggleClass('slds-is-open')">
+				    <section class="slds-accordion__section" id="sfdc1_${loop.index}">
 				      <div class="slds-accordion__summary" >
 				        <h3 class="slds-text-heading_small slds-accordion__summary-heading">
-				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action ">
+				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action " onclick="$('#sfdc1_${loop.index}').toggleClass('slds-is-open')">
 				            <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
 				              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="view/salesforce-lightning-design-system-2.4.3/assets/icons/utility-sprite/svg/symbols.svg#switch" />
 				            </svg>
@@ -114,10 +119,10 @@
 						      <td data-label="Account Name">
 						        <div class="slds-truncate" title="Cloudhub">
 						         <c:choose>
-						        	<c:when test="${fields.fillRate >= 90}">
+						        	<c:when test="${fields.fillRate == 0}">
 						        		<font color= "red">
 						        	</c:when>
-						        	<c:when test="${fields.fillRate >= 80}">
+						        	<c:when test="${fields.fillRate < 20}">
 						        		<font color= "#f4a641">
 						        	</c:when>
 						        	<c:otherwise>
@@ -155,14 +160,17 @@
 	      <article class="slds-card">
 		    <div class="slds-card__header slds-grid">
 		      <header class="slds-media slds-media--center slds-has-flexi-truncate">
-		        <div class="slds-media__figure">
-		          <svg aria-hidden="true" class="slds-icon slds-icon-standard-contact slds-icon--small">
-		            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#contact')}"></use>
+				 <div class="slds-media__figure">
+		        <span class="slds-icon_container slds-icon-standard-bot">
+		          <svg aria-hidden="true" class="slds-icon slds-icon--small" id="case">
+		            <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/standard-sprite/svg/symbols.svg#bot')}"></use>
+		          <svg viewBox="0 0 24 24" id="bot"><title/><path d="M11.9 6.2c1.7 0 3.1 1.4 3.1 3.1v.8c-1-.1-2.1-.2-3.1-.2s-2.1.1-3.1.2v-.8c0-1.7 1.4-3.1 3.1-3.1zm5.7 9.1l.3-2.7c.7.1 1.2.7 1.2 1.3 0 .8-.7 1.4-1.5 1.4zm-11.4 0c-.8 0-1.5-.6-1.5-1.4 0-.7.5-1.2 1.2-1.3l.3 2.7zm10.3-4.5c-1.6-.2-3.1-.3-4.6-.3s-3 .1-4.5.3c-.6 0-.9.5-.9 1l.5 4.7c.1.4.4.8.8.8 1.4.2 2.8.2 4.2.2s2.7 0 4.1-.2c.4 0 .7-.4.8-.8l.5-4.7c0-.5-.4-1-.9-1zM9.3 15c-.4 0-.7-.4-.7-.9s.3-.9.7-.9.6.4.6.9-.3.9-.6.9zm4 1l-.1.1s0 .1-.1.1h-2.4l-.1-.1v-.5c0-.1 0-.2.1-.2h.1c.1 0 .1.1.1.2v.2h2v-.2c0-.1.1-.2.2-.2s.2.1.2.2v.4zm1.2-1c-.3 0-.6-.4-.6-.9s.3-.9.6-.9.7.4.7.9-.3.9-.7.9z"/></path></symbol></svg>
 		          </svg>
+		        <span class="slds-assistive-text"></span>
 		        </div>
 		        <div class="slds-media__body slds-truncate">
 		          <a href="javascript:void(0);" class="slds-text-link--reset">
-		            <span class="slds-text-heading--small">SUPPORTFORCE</span>
+		            <span class="slds-text-heading--small">Sandbox-2</span>
 		          </a>
 		        </div>
 		      </header>
@@ -173,10 +181,10 @@
 				  <c:forEach items="#{supportforce}" var="record" varStatus="loop">	
 				  <c:set var="showFooter2" value="${loop.index}"/>			  
 				  <li class="slds-accordion__list-item" >
-				    <section class="slds-accordion__section" onclick="$(this).toggleClass('slds-is-open')">
+				    <section class="slds-accordion__section" id="sfdc2_${loop.index}">
 				      <div class="slds-accordion__summary" >
 				        <h3 class="slds-text-heading_small slds-accordion__summary-heading">
-				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action">
+				          <button aria-controls="accordion-details-01" aria-expanded="true" class="slds-button slds-section__title-action" onclick="$('#sfdc2_${loop.index}').toggleClass('slds-is-open')">
 				            <svg class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left" aria-hidden="true">
 				              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="view/salesforce-lightning-design-system-2.4.3/assets/icons/utility-sprite/svg/symbols.svg#switch" />
 				            </svg>
@@ -204,10 +212,10 @@
 						      </th>
 						      <td data-label="Account Name">
 						         <c:choose>
-						        	<c:when test="${fields.fillRate >= 90}">
+						        	<c:when test="${fields.fillRate == 0}">
 						        		<font color= "red">
 						        	</c:when>
-						        	<c:when test="${fields.fillRate >= 80}">
+						        	<c:when test="${fields.fillRate < 20}">
 						        		<font color= "#f4a641">
 						        	</c:when>
 						        	<c:otherwise>
@@ -215,7 +223,7 @@
 						        	</c:otherwise>
 						        </c:choose>
 						        	
-						        	${fields.fillRate} % <c:out value="${org62.length}"></c:out>
+						        	${fields.fillRate} %
 						        	</font>
 						      </td>
 						     </tr>
