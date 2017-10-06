@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
@@ -58,16 +59,28 @@ public class GenericService {
 		}
 	}	
 	
-	public LinkedList<FillRateAnalysis> getOrg62Analysis(String orgName){	
-		LinkedList<FillRateAnalysis> dataList = new LinkedList<FillRateAnalysis>();
+	public LinkedHashMap<String, LinkedList<FillRateAnalysis>> getOrg62Analysis(String orgName){
+		LinkedHashMap<String, LinkedList<FillRateAnalysis>> dataMap = new LinkedHashMap<String, LinkedList<FillRateAnalysis>>();
+		LinkedList<FillRateAnalysis> dataList = null;
 		try {
 			Statement st = connection.createStatement();
 			ResultSet rs = st.executeQuery("Select * from salesforce.fill_rate_analysis where \"OrgName\"='"+orgName+"'");
 			while(rs.next()){		
 				FillRateAnalysis data = new FillRateAnalysis();
-				data.setObjectName(rs.getString("ObjectName"));
-				System.out.println();
-				dataList.add(data);
+				data.setObjectName(rs.getString("ObjectName").trim());
+				data.setFieldName(rs.getString("FieldName").trim());
+				data.setFillRate(rs.getDouble("FillRate"));
+				if(dataMap.get(data.getObjectName()) != null)
+				{
+					dataList = dataMap.get(data.getObjectName());
+					dataList.add(data);
+					dataMap.put(data.getObjectName(), dataList);
+				}else{
+					dataList = new LinkedList<FillRateAnalysis>();
+					dataList.add(data);
+					dataMap.put(data.getObjectName(), dataList);
+				}
+				
 			}
 		} catch (SQLException e) {
 
@@ -83,6 +96,6 @@ public class GenericService {
 			System.out.println("Failed to make connection!");
 		}
 		
-		return dataList;
+		return dataMap;
 	}
 }
