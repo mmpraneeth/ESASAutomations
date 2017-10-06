@@ -37,7 +37,7 @@
 	          <p class="slds-text-title--caps slds-line-height--reset"></p>
 	           <img src="https://www.google.com/a/salesforce.com/images/logo.gif?alpha=1&amp;service=google_default" style="width:15%%;height:50px;float:left;">
 	             <img src="https://www.vectorlogo.zone/logos/heroku/heroku-card.png" style="width:15%%;height:50px;float:right;">
-	           <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"  title="SLDS Inc." style="text-align: center;font-size:30px;">Field Data Storage</h1>
+	           <h1 class="slds-page-header__title slds-m-right--small slds-align-middle slds-truncate"  title="SLDS Inc." style="text-align: center;font-size:30px;">Field Data Usage</h1>
 	        </div>
 	      </div>
 	      <!-- / MEDIA OBJECT -->
